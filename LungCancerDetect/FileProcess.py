@@ -39,3 +39,13 @@ class FileProcess:
                 lines.append(line)
         return lines
 
+    #save file matrix
+    def saveMatrix(self, id,first_patient,first_patient_pixels):
+        np.save("fullimages_%d.npy" % (0), self.first_patient)
+        np.save("fullimages_%d.npy" % (1), self.first_patient_pixels)
+
+    def loadMatrix(self,path):
+        first_patient = self. load_dicom_image(path)
+        first_patient_pixels = self.get_pixels_hu(first_patient)
+        return first_patient,first_patient_pixels
+

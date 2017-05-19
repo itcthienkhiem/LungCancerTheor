@@ -8,8 +8,7 @@ import sklearn
 import numpy as np  # linear algebra
 import pandas as pd  # data processing, CSV file I/O (e.g. pd.read_csv)
 import skimage, os
-from skimage.morphology import ball, disk, dilation, binary_erosion, remove_small_objects, erosion, closing, \
-    reconstruction, binary_closing
+from skimage.morphology import ball, disk, dilation, binary_erosion, remove_small_objects, erosion, closing, reconstruction, binary_closing
 from skimage.measure import label, regionprops, perimeter
 from skimage.morphology import binary_dilation, binary_opening
 from skimage.filters import roberts, sobel
