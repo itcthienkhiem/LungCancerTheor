@@ -1,7 +1,6 @@
 import dicom,os
 import numpy as np
 import SimpleITK as sitk
-import numpy as np
 import csv
 import os
 from PIL import Image
