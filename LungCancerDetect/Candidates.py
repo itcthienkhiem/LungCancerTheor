@@ -1,5 +1,6 @@
 import math
 class Solver:
+
     def demo(self, a, b, c):
         d = b ** 2 - 4 * a * c
         if d >= 0:
