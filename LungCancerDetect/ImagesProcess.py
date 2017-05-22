@@ -30,7 +30,8 @@ class ImageProcess:
 
     #input : slices of an images of a patient .
     #output: only a array of a image
-    def get_pixels_hu(slices):
+    @classmethod
+    def get_pixels_hu(self, slices):
         image = np.stack([s.pixel_array for s in slices])
         # Convert to int16 (from sometimes int16),
         # should be possible as values should always be low enough (<32k)

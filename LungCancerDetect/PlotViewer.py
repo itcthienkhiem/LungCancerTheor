@@ -37,15 +37,16 @@ class PlotViewer:
 
 
     #SHOW PILOT 2D WITH HOUNSFIELD UNITS HU
+    @classmethod
     def showsubplot(self,first_patient_pixels):
         # start: cach hien thi 2 do thi chung
         plt.subplot(1, 2, 1)
-        plt.hist(self.first_patient_pixels.flatten(), bins=80, color='c')
+        plt.hist(first_patient_pixels.flatten(), bins=80, color='c')
         plt.xlabel("Hounsfield Units (HU)")
         plt.ylabel("Frequency")
         plt.subplot(1, 2, 2)
         # Show some slice in the middle
-        plt.imshow(self.first_patient_pixels[80], cmap=plt.cm.gray, interpolation="none")
+        plt.imshow(first_patient_pixels[80], cmap=plt.cm.gray, interpolation="none")
         plt.show()
         # end
 

@@ -6,10 +6,23 @@ import csv
 import  SimpleITK as sitk
 
 class FileProcess:
+    def __init__(self):
+        print 'FileProcess'
 
     #load dicom image
-    def load_dicom_image(path):
-        slices = [dicom.read_file(path + '/' + s) for s in os.listdir(path)]
+    @classmethod
+    def load_dicom_image(self,path):
+        if not os.path.exists(path):
+            raise  path
+        slices=[]
+        for s in os.listdir(path):
+
+            ext = os.path.splitext(s)[-1].lower()
+            if(ext=='.dcm'):
+                slices.append(dicom.read_file(path + '/' + s) )
+
+#        slices = [dicom.read_file(path + '/' + s) for s in os.listdir(path)]
+
         slices.sort(key=lambda x: float(x.ImagePositionPatient[2]))
         try:
             slice_thickness = np.abs(slices[0].ImagePositionPatient[2] - slices[1].ImagePositionPatient[2])
@@ -22,7 +35,7 @@ class FileProcess:
         return slices
 
     #read itk file
-    def load_itk_image(filename):
+    def load_itk_image(self,filename):
         itkimage = sitk.ReadImage(filename)
         numpyImage = sitk.GetArrayFromImage(itkimage)
 
